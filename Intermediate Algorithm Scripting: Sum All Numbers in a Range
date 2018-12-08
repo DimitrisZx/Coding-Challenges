@@ -1,0 +1,21 @@
+/*
+We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers between them.
+
+The lowest number will not always come first.
+by freeCodeCamp
+*/
+
+
+
+function sumAll(arr) {
+  const nums = arr.sort((a, b) => b - a);
+  const diffArr = [];
+
+  for(let i = nums[0]-1; i > nums[1]; i--){
+    diffArr.push(i)
+  }
+  const sum = nums.reduce((a,b) => a + b) + diffArr.reduce((a,b) => a + b);
+  return sum;
+}
+
+sumAll([1, 4]);
