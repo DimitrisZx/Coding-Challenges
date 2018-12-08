@@ -8,14 +8,20 @@ by freeCodeCamp
 
 
 function sumAll(arr) {
+  // sort the passed array in Descending order and save it to a variable for easier use
   const nums = arr.sort((a, b) => b - a);
   const diffArr = [];
-
+  // fill the diffArr array with all the numbers in the range between the two numbers of the nums array
   for(let i = nums[0]-1; i > nums[1]; i--){
     diffArr.push(i)
   }
+  // Calculate the total sum by adding the sum of the two initial number to the sum of the numbers between them
   const sum = nums.reduce((a,b) => a + b) + diffArr.reduce((a,b) => a + b);
   return sum;
 }
 
+// Test Cases
 sumAll([1, 4]);
+sumAll([4, 1]);
+sumAll([5, 10]);
+sumAll([10, 5]);
